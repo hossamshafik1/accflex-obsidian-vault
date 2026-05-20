@@ -1,0 +1,17 @@
+
+- [ ]  Move the app to the MVC
+- [x] Company code get URLs from new license 
+- [x] New screen for synchronization 
+- [x] Log error file path
+- [x] refresh button to check the internet status. 
+- [x] local database backup feature. 
+- [ ] search filter and controls
+- [ ] slump level lookup
+- [x] added materials lookup
+- [x] Ice/ water lookup
+- [ ] Concrete elements lookup
+- [x] add truck popup style. 
+- [ ] user reports layouts 
+- [x] UI white buttons
+- [ ] sync functionalities 
+- [ ] removed local changes appears in schedule grid

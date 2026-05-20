@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find 'D:\\\\Hadaf Work TFS\\\\AccFlex_Cloud_Front' -path */node_modules -prune -o -type d -name *report* -print)",
+      "Bash(find 'D:\\\\Hadaf Work TFS\\\\AccFlex_Cloud_Front' -path */node_modules -prune -o -type f -name environment*.ts -print)",
+      "Bash(find 'D:\\\\Hadaf Work TFS\\\\AccFlex_Cloud_Front' -path */node_modules -prune -o -type f -name *.json -path *i18n* -print)",
+      "Bash(find 'D:\\\\Hadaf Work TFS\\\\AccFlex_Cloud_Front' -path */node_modules -prune -o -type f -name config.json -print)",
+      "Read(//d/Hadaf Work TFS/.claude/**)",
+      "Read(//d/Hadaf Work TFS/.cursor/**)",
+      "Read(//d/Hadaf Work TFS/**)",
+      "Bash(mkdir -p \"D:\\\\Hadaf Work TFS\\\\.claude\\\\rules\")",
+      "Bash(mkdir -p \"D:\\\\Hadaf Work TFS\\\\.cursor\\\\rules\")"
+    ]
+  }
+}
