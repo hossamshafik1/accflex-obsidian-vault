@@ -5,13 +5,13 @@
 - [x] Log error file path
 - [x] refresh button to check the internet status. 
 - [x] local database backup feature. 
-- [ ] search filter and controls
-- [ ] slump level lookup
+- [x] search filter and controls
+- [x] slump level lookup
 - [x] added materials lookup
 - [x] Ice/ water lookup
-- [ ] Concrete elements lookup
+- [x] Concrete elements lookup
 - [x] add truck popup style. 
-- [ ] user reports layouts 
+- [x] user reports layouts 
 - [x] UI white buttons
 - [ ] sync functionalities 
 - [ ] removed local changes appears in schedule grid

@@ -224,3 +224,37 @@ cancels on `FormClosed`, pass the token into every API call.
 - `Forms/MonitoringConcreteProducts/DeliveryScheduleTab.cs`
 - `Forms/MonitoringConcreteProducts/PriceConditionsPopup.cs` (most complex DTO mapping)
 - `Infrastructure/AppUiCulture.cs` — bilingual helper used across the new UI
+---
+
+## Update — 2026-06-01 (all planned stages completed)
+
+### Completed in this session
+
+All 7 remaining planned stages are now done:
+
+1. **Truck / Driver / Pump name resolution** — `ReferenceSyncService.SyncAllAsync` runs on form open, `state.InvalidateReferenceCaches()` called on completion, and a forced lookup reload follows. Auto-refresh fires on every reconnect.
+
+2. **Real permissions** — `UserPermissionsLoader.LoadAsync` called in `MonitoringConcreteProductsForm` constructor, populates `MonitoringPermissions` from Misc API (module 621). Popups gate via `MonitoringPermissions.Can(id)`.
+
+3. **Pre-warm lookups** — `_state.LoadLookupsAsync` fire-and-forget in the constructor so the first tab navigation is instant.
+
+4. **ReferenceSyncService wired** — `RunReferenceSyncAsync` fires on form open and again on every Online reconnect via `ConnectivityState.StatusChanged`.
+
+5. **Cancel-token plumbing** — `PopupCancellation.Attach(this)` present in all 8 popups that make server calls.
+
+6. **Print parity** — `PrintPopup` renders cached XtraReport templates; amber sync cue on toolbar when no layouts cached.
+
+7. **Localization sweep** — all hard-coded English strings fixed:
+   - `TrackingDetailTabPopup`: 5 time-field labels + "Sales order notes" + error message
+   - `DetailScheduleQuantitiesPopup`: 10 display-field labels (Material, Customer, dates, quantities)
+   - `RedirectedStatusPopup`: full summary text
+   - `PartiallyDirectedPopup`, `AddPumpsPopup`, `PriceConditionsPopup`, `RedirectToAnotherCustomerPopup`, `RedirectCustomerCreatePopup`: error messages → `AppUiCulture.Select` + `L.ServerError`
+   - `PrintPopup`: "Field" / "Value" column captions
+   - `DeliveryScheduleTab`: duplicate `using` removed (compiler warning gone)
+
+### Build status
+Clean — no errors, no warnings (MSBuild 2022 Enterprise, Debug config).
+
+### Remaining (future work)
+- End-to-end manual test path per the verification checklist in the plan.
+- Migrate bilingual inline strings to `.resx` once surface stabilises (stretch goal).
